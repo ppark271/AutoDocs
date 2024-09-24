@@ -1,25 +1,3 @@
-# Import necessary libraries for PDF generation, data handling, and user interaction
-from reportlab.lib import colors
-from reportlab.lib.pagesizes import letter, legal
-from reportlab.lib.pagesizes import A1, A2, A3, A4, A5, A6, landscape
-from reportlab.platypus import SimpleDocTemplate
-from reportlab.lib.styles import getSampleStyleSheet, ParagraphStyle
-from reportlab.lib.units import inch
-from reportlab.platypus import (
-    SimpleDocTemplate, Paragraph, Spacer, Table, TableStyle, Image, Flowable
-)
-from io import BytesIO
-import PyPDF2
-from reportlab.pdfgen import canvas
-import random  # For generating random data
-import pandas as pd  # For reading data from Excel files
-from datetime import datetime  # For current date and time
-import os  # For file path operations
-from tkinter import Tk, filedialog  # For file and directory selection dialogs
-import re  # For regular expressions
-import shutil
-import fitz
-
 from documents.capital_call import *
 from documents.quarterly_update import *
 from documents.gp_report import *
@@ -27,8 +5,6 @@ from documents.wire_instruction import *
 from documents.distribution_notice import *
 
 from documents.utils import *
-
-
 
 # Main execution block
 if __name__ == "__main__":
