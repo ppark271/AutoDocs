@@ -7,6 +7,13 @@ def select_file():
         label_file.config(text=f"Selected: {file_path}")
         selected_file.set(file_path)
 
+def select_logo():
+    logo_path = filedialog.askopenfilename()
+    if logo_path:
+        label_logo.config(text=f"Selected: {logo_path}")
+        selected_logo.set(logo_path)
+
+
 def select_directory():
     output_directory = filedialog.askdirectory(title="Select Output Directory")
     if output_directory:
@@ -27,11 +34,12 @@ root = tk.Tk()
 root.title("AutoDocs")
 
 # Set the window size
-root.geometry("600x500")
+root.geometry("600x600")
 root.config(bg="#f0f0f0")  # Background color
 
 # Variables to store user selections
 selected_file = tk.StringVar(root, value="No file selected")
+selected_logo = tk.StringVar(root, value="No logo selected")
 selected_directory = tk.StringVar(root, value="No directory selected")
 
 # Define font and styling options
@@ -51,6 +59,19 @@ button_file.pack(side="left", padx=10, pady=5)
 label_file = tk.Label(frame_file, textvariable=selected_file, bg="#e6e6e6", font=font_label)
 label_file.pack(side="left", padx=10)
 
+# Create a frame for file selection
+frame_logo = tk.Frame(root, bg="#e6e6e6", bd=2, relief="sunken", padx=10, pady=10)
+frame_logo.pack(padx=20, pady=20, fill="x")
+
+label_logo_title = tk.Label(frame_logo, text="Logo Selection", font=font_label, bg="#e6e6e6")
+label_logo_title.pack(anchor="w")
+
+button_logo = tk.Button(frame_logo, text="Select Logo", command=select_logo, font=font_button, bg="#4CAF50", fg="white")
+button_logo.pack(side="left", padx=10, pady=5)
+
+label_logo = tk.Label(frame_logo, textvariable=selected_logo, bg="#e6e6e6", font=font_label)
+label_logo.pack(side="left", padx=10)
+
 # Create a frame for directory selection
 frame_dir = tk.Frame(root, bg="#e6e6e6", bd=2, relief="sunken", padx=10, pady=10)
 frame_dir.pack(padx=20, pady=20, fill="x")
@@ -63,6 +84,8 @@ button_dir.pack(side="left", padx=10, pady=5)
 
 label_dir = tk.Label(frame_dir, textvariable=selected_directory, bg="#e6e6e6", font=font_label)
 label_dir.pack(side="left", padx=10)
+
+
 
 # Create a frame for the option menu
 frame_option = tk.Frame(root, bg="#e6e6e6", bd=2, relief="sunken", padx=10, pady=10)
