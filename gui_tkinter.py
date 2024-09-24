@@ -8,11 +8,13 @@ def select_file():
         selected_file.set(file_path)
 
 def select_logo():
-    logo_path = filedialog.askopenfilename()
+    logo_path = filedialog.askopenfilename(
+        title="Select an Image",
+        filetypes=[("Image Files", "*.png;*.jpg;*.jpeg;*.gif;*.bmp")],  # Filter image file types
+    )
     if logo_path:
         label_logo.config(text=f"Selected: {logo_path}")
         selected_logo.set(logo_path)
-
 
 def select_directory():
     output_directory = filedialog.askdirectory(title="Select Output Directory")
@@ -24,17 +26,31 @@ def option_selected(choice):
     label_option.config(text=f"Selected option: {choice}")
 
 def submit_action():
+    print("submitted")
     file = selected_file.get()
+    logo = selected_logo.get()
     directory = selected_directory.get()
     option = selected_option.get()
-    submit_label.config(text=f"File: {file}, Directory: {directory}, Option: {option}")
+
+    if file == "No file selected":
+        return
+    if logo == "No logo selected":
+        return
+    if directory == "No directory selected":
+        return
+    if option == "No option selected":
+        return
+
+    submit_label.config(text="Generating...")
+    #do something
+    submit_label.config(text="Done!")
 
 # Create the root window
 root = tk.Tk()
 root.title("AutoDocs")
 
 # Set the window size
-root.geometry("600x600")
+root.geometry("600x650")
 root.config(bg="#f0f0f0")  # Background color
 
 # Variables to store user selections
