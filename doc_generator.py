@@ -6,6 +6,8 @@ from documents.distribution_notice import *
 
 from documents.utils import *
 
+from tkinter import Tk, filedialog 
+
 # Main execution block
 if __name__ == "__main__":
     # Hide the root window of Tkinter
@@ -110,6 +112,7 @@ if __name__ == "__main__":
             "address_1" : address_1
         }
 
+        """
         # Try-except block to catch exceptions
         try:
             #capital call
@@ -211,7 +214,18 @@ if __name__ == "__main__":
                 output_pdf_name = f"{fund_name}_{investor_code_safe}_{legal_name_safe} Distribution Notice - {quarter_str}.pdf"
                 output_pdf_path = os.path.join(output_directory, output_pdf_name)
 
-                create_distribution_notice_pdf(r"C:\Users\ppark\OneDrive - GP Fund Solutions, LLC\Desktop\doc_generator\templates\Distribution Notice #1.pdf", text_to_add, output_pdf_path)
+                text_to_add = {
+                        "logo" : logo_path,
+                        "legal_name" : legal_name_safe,
+                        "date" : datetime.now().strftime("%B %d, %Y"),
+                        "fund_name" : fund_name,
+                        "address_1" : address_1,
+                        "state" : state,
+                        "city" : city,
+                        "zip_code" : zip_code,
+                    }
+
+                create_distribution_notice_pdf(text_to_add, output_pdf_path)
 
             print(f"Generating PDF for {legal_name} at {output_pdf_path}")
                 
@@ -219,5 +233,6 @@ if __name__ == "__main__":
             print(f"Failed to write PDF for {legal_name}: {e}")
         except Exception as e:
             print(f"An error occurred while generating PDF for {legal_name}: {e}")
-
+        """
+        
     print("PDF generation complete.")
