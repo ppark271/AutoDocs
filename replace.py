@@ -74,6 +74,8 @@ for i in new_cn:
 
     gp_inv_shorts.append(fn + ln + inv_short[i])
 
+    index += 1
+
 
 df2["Fund Name"] = new_cn
 df2["Investor Code"] = gp_inv_shorts
