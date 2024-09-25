@@ -98,10 +98,10 @@ def create_distribution_notice_pdf(text_to_add, output_pdf_path):
     story.append(top_table)
 
     header_data = [
-        ["To", Paragraph(f"<b>{text_to_add["legal_name"]}</b>", styles["Normal"])],
-        ["From:", f"{text_to_add["fund_name"]}"],
-        ["RE:", f"{text_to_add["fund_name"]}"],
-        ["Date:", f"{text_to_add["date"]}"]
+        ["To", Paragraph(f"<b>{text_to_add['legal_name']}</b>", styles["Normal"])],
+        ["From:", f"{text_to_add['fund_name']}"],
+        ["RE:", f"{text_to_add['fund_name']}"],
+        ["Date:", f"{text_to_add['date']}"]
     ]
 
     header_table = Table(header_data, colWidths=[inch, 3*inch], hAlign="LEFT")
@@ -186,8 +186,8 @@ capital account statement for your share of current year GAAP capital gain/(loss
     story.append(DividerLine(doc.width))
 
     footer_data = [
-        [f"{text_to_add["address_1"]}", "CONFIDENTIAL"],
-        [f"{text_to_add["state"]}, {text_to_add["city"]} {text_to_add["zip_code"]}", ""],
+        [f"{text_to_add['address_1']}", "CONFIDENTIAL"],
+        [f"{text_to_add['state']}, {text_to_add['city']} {text_to_add['zip_code']}", ""],
     ]
     footer_table = Table(footer_data, colWidths=[6*inch, inch], hAlign="LEFT")
 
