@@ -115,7 +115,7 @@ def submit_action():
         try:
             #capital call
             if option == "Capital Call":
-                output_pdf_name = f"{investor_code_safe}_{legal_name_safe}-{fund_name} - Capital Call - {quarter_str}.pdf"
+                output_pdf_name = f"{investor_code_safe}_{legal_name_safe} - {fund_name} - Capital Call.pdf"
                 output_pdf_path = os.path.join(output_directory, output_pdf_name)
 
                 create_capital_call_pdf(
@@ -128,7 +128,7 @@ def submit_action():
             
             #k1 document
             elif option == "K1 Document":
-                output_pdf_name = f"{investor_code_safe}_{legal_name_safe}-{fund_name} - K1.pdf"
+                output_pdf_name = f"{investor_code_safe}_{legal_name_safe} - {fund_name} - K1.pdf"
                 output_pdf_path = os.path.join(output_directory, output_pdf_name)
 
                 create_k1_document_pdf(fund_name, output_pdf_path)
@@ -203,14 +203,14 @@ def submit_action():
 
             #wire instruction confirmation
             elif option == "Wire Instruction":
-                output_pdf_name = f"{investor_code_safe}_{legal_name_safe}-{fund_name} - Wire Instructions - {quarter_str}.pdf"
+                output_pdf_name = f"{investor_code_safe}_{legal_name_safe} - {fund_name} - Wire Instructions.pdf"
                 output_pdf_path = os.path.join(output_directory, output_pdf_name)
 
                 create_wire_instruction_pdf(text_to_add, output_pdf_path)
 
             #distribution notice
             elif option == "Distribution Notice":
-                output_pdf_name = f"{investor_code_safe}_{legal_name_safe}-{fund_name} - Distribution Notice - {quarter_str}.pdf"
+                output_pdf_name = f"{investor_code_safe}_{legal_name_safe} - {fund_name} - Distribution Notice.pdf"
                 output_pdf_path = os.path.join(output_directory, output_pdf_name)
 
                 text_to_add = {
