@@ -60,8 +60,6 @@ def submit_action():
     quarter = (now.month - 1) // 3 + 1
     quarter_str = f"Q{quarter} {now.year - 1}"
 
-    logo_path = r"C:\Users\ppark\OneDrive - GP Fund Solutions, LLC\Desktop\doc_generator\aea-logo.PNG"
-
     funds = {}
     fund_names = set()
 
@@ -116,7 +114,7 @@ def submit_action():
         try:
             #capital call
             if option == "Capital Call":
-                output_pdf_name = f"{investor_code_safe}_{legal_name_safe} - {fund_name} - Capital Call - {quarter_str}.pdf"
+                output_pdf_name = f"{investor_code_safe}_{legal_name_safe}-{fund_name} - Capital Call - {quarter_str}.pdf"
                 output_pdf_path = os.path.join(output_directory, output_pdf_name)
 
                 create_capital_call_pdf(
@@ -129,7 +127,7 @@ def submit_action():
             
             #k1 document
             elif option == "K1 Document":
-                output_pdf_name = f"{investor_code_safe}_{fund_name}_{legal_name_safe}-K1-2023.pdf"
+                output_pdf_name = f"{investor_code_safe}_{legal_name_safe}-{fund_name} - K1 - 2023.pdf"
                 output_pdf_path = os.path.join(output_directory, output_pdf_name)
 
                 shutil.copy("k1-filled-flat.pdf", output_pdf_path)
@@ -159,7 +157,7 @@ def submit_action():
                 output_pdf_path2 = os.path.join(output_directory, output_pdf_name2)
                 add_multiple_texts_to_existing_pdf("resized_output.pdf", output_pdf_path2, texts_with_positions)
 
-                output_pdf_name_final = f"{fund_name}_{fund_code_safe}_Quarterly_Update - {quarter_str}.pdf"
+                output_pdf_name_final = f"{fund_code_safe}_{fund_name} - Quarterly Update.pdf"
                 output_pdf_path_final = os.path.join(output_directory, output_pdf_name_final)
 
                 # Step 1: Open the two PDFs
@@ -190,7 +188,7 @@ def submit_action():
                 
             #gp report
             elif option == "GP Report":
-                output_pdf_name = f"{fund_code_safe} GP Report - {quarter_str}.pdf"
+                output_pdf_name = f"{fund_code_safe}_{fund_name} - GP Report.pdf"
                 output_pdf_path = os.path.join(output_directory, output_pdf_name)
 
                 footer = f"{investing_entity_name}, {address_1}, {city}, {state}, {zip_code}"
@@ -204,14 +202,14 @@ def submit_action():
 
             #wire instruction confirmation
             elif option == "Wire Instruction":
-                output_pdf_name = f"{fund_name}_{investor_code_safe}_{legal_name_safe} Wire Instructions - {quarter_str}.pdf"
+                output_pdf_name = f"{investor_code_safe}_{legal_name_safe}-{fund_name} - Wire Instructions - {quarter_str}.pdf"
                 output_pdf_path = os.path.join(output_directory, output_pdf_name)
 
                 create_wire_instruction_pdf(text_to_add, output_pdf_path)
 
             #distribution notice
             elif option == "Distribution Notice":
-                output_pdf_name = f"{fund_name}_{investor_code_safe}_{legal_name_safe} Distribution Notice - {quarter_str}.pdf"
+                output_pdf_name = f"{investor_code_safe}_{legal_name_safe}-{fund_name} - Distribution Notice - {quarter_str}.pdf"
                 output_pdf_path = os.path.join(output_directory, output_pdf_name)
 
                 text_to_add = {
