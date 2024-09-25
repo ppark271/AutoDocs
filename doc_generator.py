@@ -131,7 +131,7 @@ def submit_action():
                 output_pdf_name = f"{investor_code_safe}_{legal_name_safe} - {fund_name} - K1.pdf"
                 output_pdf_path = os.path.join(output_directory, output_pdf_name)
 
-                create_k1_document_pdf(fund_name, output_pdf_path)
+                create_k1_document_pdf(fund_name, legal_name, output_pdf_path)
 
             #quarterly update
             elif option == "Quarterly Update":

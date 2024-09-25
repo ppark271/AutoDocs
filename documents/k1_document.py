@@ -1,9 +1,10 @@
 from documents.utils import *
 
-def create_k1_document_pdf(fund_name, output_pdf_path):
-    input_pdf = r"C:\Users\ppark\OneDrive - GP Fund Solutions, LLC\Desktop\doc_generator\documents\k1_template.pdf"
+def create_k1_document_pdf(fund_name, legal_name, output_pdf_path):
+    input_pdf = r"C:\Users\ppark\OneDrive - GP Fund Solutions, LLC\Desktop\doc_generator\documents\k1_template2.pdf"
     texts_with_positions = [
         (fund_name + " 1456 Sierra Ridge Drive Fresno CA 93711", (40, 580)),
+        (legal_name + " 8973 Elliott Stream South Shawnchester CA 97695", (40, 480)),
     ]
 
 
