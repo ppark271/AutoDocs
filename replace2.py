@@ -45,10 +45,10 @@ inv_short = {
     "ABC Fund VI" : "ABFuVI",
     "ABC Fund V" : "ABFuV",
     "ABC Fund IV" : "ABFuIV",
-    "ABC Fund III" : "ABFuII",
+    "ABC Fund III" : "ABFuII2",
     "ABC Real Estate Fund I Program" : "ABReEsFuIPr",
     "ABC Real Estate Fund II Program" : "ABReEsFuIIPr",
-    "ABC Fund II" : "ABFuII",
+    "ABC Fund II" : "ABFuII1",
     "ABC Fund II Offshore" : "ABFuIIOf",
     "ABC Fund II Aggregator" : "ABFuIIAg",
     "ABC Fund II NAV Facility" : "ABFuIINAFa"
