@@ -40,6 +40,7 @@ new_cn = []
 for i in cn:
     new_cn.append(gp_cn_map[i])
 
+"""
 inv_short = {
     "Capital Partners I" : "CaPaI",
     "Capital Partners II" : "CaPaII",
@@ -76,8 +77,9 @@ for i in new_cn:
 
     index += 1
 
+df2["Investor Code"] = gp_inv_shorts
+"""
 
 df2["Fund Name"] = new_cn
-df2["Investor Code"] = gp_inv_shorts
 
 df2.to_excel("modified_GP_CRM.xlsx", index=False)
