@@ -52,7 +52,7 @@ def submit_action():
     submit_label.config(text="Generating...")
 
     # Read data from the selected Excel file
-    df = pd.read_excel(excel_file_path, sheet_name = "Investor")
+    df = pd.read_excel(excel_file_path)
 
 
     # Get current quarter and year for filename
