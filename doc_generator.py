@@ -3,6 +3,7 @@ from documents.quarterly_update import *
 from documents.gp_report import *
 from documents.wire_instruction import *
 from documents.distribution_notice import *
+from documents.k1_document import *
 
 from documents.utils import *
 
@@ -127,10 +128,10 @@ def submit_action():
             
             #k1 document
             elif option == "K1 Document":
-                output_pdf_name = f"{investor_code_safe}_{legal_name_safe}-{fund_name} - K1 - 2023.pdf"
+                output_pdf_name = f"{investor_code_safe}_{legal_name_safe}-{fund_name} - K1.pdf"
                 output_pdf_path = os.path.join(output_directory, output_pdf_name)
 
-                shutil.copy("k1-filled-flat.pdf", output_pdf_path)
+                create_k1_document_pdf(fund_name, output_pdf_path)
 
             #quarterly update
             elif option == "Quarterly Update":

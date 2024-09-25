@@ -109,8 +109,8 @@ def add_multiple_texts_to_existing_pdf(input_pdf, output_pdf, texts_with_positio
     # Loop through the list of texts and positions
     for text, position in texts_with_positions:
         x, y = position
-        can.setFont("Helvetica-Bold", 20)
-        can.setFillColorRGB(1, 1, 1)
+        can.setFont("Helvetica", 8)
+        can.setFillColorRGB(0, 0, 0)
         can.drawString(x, y, text)  # Add each text at the specified (x, y) position
     
     can.save()
